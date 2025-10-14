@@ -1,15 +1,21 @@
 package com.inflowia.dsclients.DTO;
 
 import com.inflowia.dsclients.entities.Client;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.PastOrPresent;
 
 import java.time.LocalDate;
 
 public class ClientDTO {
 
     private Long id;
+
+    @NotBlank(message = "Campo Requerido")
     private String name;
     private String cpf;
     private Double income;
+
+    @PastOrPresent(message = "A data de nasicmento não pode ser uma data futura")
     private LocalDate birthDate;
     private Integer children;
 
